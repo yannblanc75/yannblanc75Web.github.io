@@ -1,0 +1,1 @@
+import{r as s}from"./main-D_vCl3Ec.js";const a=(t=.1)=>{const[i,c]=s.useState(!1),o=s.useRef();return s.useEffect(()=>{const r=new IntersectionObserver(u=>{u.forEach(n=>{n.isIntersecting&&(c(!0),r.unobserve(n.target))})},{threshold:t,rootMargin:"0px 0px -100px 0px"}),{current:e}=o;return e&&r.observe(e),()=>{e&&r.unobserve(e)}},[t]),[o,i]};export{a as u};
