@@ -9,19 +9,49 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Script pour SPA sur GitHub Pages avec correction -->
+    <!-- Script amélioré pour SPA sur GitHub Pages et test local -->
     <script type="text/javascript">
-      // Détection d'environnement de développement vs production
-      if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
-        document.write('<base href="/site-personnel/">');
-      } else {
-        document.write('<base href="/">');
-      }
+      // Détection d'environnement et gestion des chemins
+      (function() {
+        // Détection du contexte d'exécution
+        var hostname = window.location.hostname;
+        var isLocalhost = hostname === 'localhost' || hostname === '127.0.0.1';
+        var isGitHubPages = hostname.includes('github.io');
+        
+        // Configuration du chemin de base
+        var basePath = '/';
+        
+        if (isGitHubPages) {
+          // Sur GitHub Pages, utiliser /site-personnel/
+          basePath = '/site-personnel/';
+          console.log('Environnement détecté: GitHub Pages, basePath =', basePath);
+        } else {
+          // En développement ou en local
+          console.log('Environnement détecté: Développement/Local, basePath =', basePath);
+        }
+        
+        // Créer et ajouter l'élément base
+        var baseElement = document.createElement('base');
+        baseElement.href = basePath;
+        document.head.appendChild(baseElement);
+      })();
     </script>
-  <script type="module" crossorigin src="/site-personnel/assets/js/main-D_vCl3Ec.js"></script>
-  <link rel="stylesheet" crossorigin href="/site-personnel/assets/css/main-C2G3jdbU.css">
+    <!-- Méta-tags pour les réseaux sociaux -->
+    <meta property="og:title" content="Yann Blanc | Cybersécurité & Administration Système">
+    <meta property="og:description" content="Portfolio personnel de Yann Blanc, spécialisé en administration système, réseaux et sécurité informatique.">
+    <meta property="og:image" content="img/profil.jpg">
+    <meta property="og:url" content="https://yannblanc75web.github.io/site-personnel/">
+    <meta name="twitter:card" content="summary_large_image">
+  <script type="module" crossorigin src="/site-personnel/assets/index-WFRqwp2f.js"></script>
+  <link rel="stylesheet" crossorigin href="/site-personnel/assets/index-C2G3jdbU.css">
 </head>
 <body>
     <div id="root"></div>
+    <noscript>
+      <div style="text-align: center; padding: 2rem; font-family: Arial, sans-serif;">
+        <h1>JavaScript est désactivé</h1>
+        <p>Ce site nécessite JavaScript pour fonctionner correctement. Veuillez l'activer pour continuer.</p>
+      </div>
+    </noscript>
 </body>
 </html>
